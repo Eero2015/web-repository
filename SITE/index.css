@@ -28,3 +28,12 @@ button {
 #increment-btn {
 	background: darkred;
 }
+#save-btn {
+	background: darkgreen;
+	box-shadow: none;
+}
+#save-el {
+	text-align: none;
+	color: black;
+	font-weight: bolder;
+}
