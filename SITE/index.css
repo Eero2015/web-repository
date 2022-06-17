@@ -18,11 +18,13 @@ button {
 	border: none;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	color: white;
+	color: black;
 	font-weight: bold;
 	width: 200px;
 	margin-bottom: 5px;
 	border-radius: 5px;
+	background: orange;
+	font-weight : bolder;
 }
 
 #increment-btn {
@@ -36,4 +38,16 @@ button {
 	text-align: none;
 	color: black;
 	font-weight: bolder;
+}
+#num1-el {
+	color: white;
+	font-size: 20px;
+}
+#num2-el {
+	color: white;
+	font-size: 20px;
+}
+#nike-el {
+	color: white;
+	font-size: 15px;
 }
