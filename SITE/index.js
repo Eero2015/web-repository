@@ -12,7 +12,8 @@ function increment() {
 
 function save() {
 	let entries = count + " -"
-	saveEl.textContent += " " + entries
+	saveEl.textContent += " " + entries + " " + (new Date())
+
 	countEl.innerText = 0
 	count = 0
 }  
