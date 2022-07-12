@@ -2,7 +2,9 @@ let firstCard = getRandom();
 let secondCard = getRandom();
 let cards = [];
 let sum = 0
+let message = "";
 let hasBlackJack = false;
+let hasStarted = false
 let isAlive = true;
 let player = {
 	   name : "per",
@@ -20,37 +22,56 @@ function getRandom() {
 	return card }
 };
 
-
-function renderGame() {
-    document.getElementById("cards-el").innerHTML = "cards: "
+function gameDisplay(){
+	document.getElementById("cards-el").innerHTML = "cards: "
 	for (i = 0; i < cards.length; i++) {
 		document.getElementById("cards-el").textContent += cards[i] + " "}
-	if (sum <= 20) {
+		document.querySelector("#message-el").innerHTML = message
+    document.getElementById("sum-el").innerHTML = "sum "
+    document.getElementById("sum-el").innerHTML += sum
+}
+function renderGame() {
+	if (sum <= 21) {
 	message = "do you want to draw a new card?"
+	hasStarted = true
+	hasBlackJack = false
+	isAlive = true
     } else if (sum === 21) {
-	message = "woohoo! you've got blackjack!"
-	hasBlackJack = true;
+	message = "woohoo! you've got blackjack"
+	hasBlackJack = true
+	hasStarted = true
+	isAlive = true
 	} else	{
     	message = "you are out of the game"
 	isAlive = false;
+	hasStarted = true
+	hasBlackJack = false
 	}
-    document.querySelector("#message-el").innerHTML = message
-    document.getElementById("sum-el").innerHTML = "sum " + sum
+    
   
 }; 
 
 function newCard() {
-	if (isAlive === true && hasBlackJack === false) {
+	if (isAlive === true && hasBlackJack === false && hasStarted === true) {
 	let thirdCard = getRandom();
 	sum += thirdCard;
 	cards.push(thirdCard);
-	renderGame();
-	console.log(cards)}
+	renderGame()
+	gameDisplay()}
 };
 	
 
 function startGame() {
-	cards.push(getRandom());
-	cards.push(getRandom());
-	sum = cards[0] + cards[1];
-	renderGame()}
+    if (hasStarted === false && hasBlackJack === false  && isAlive === true) {
+    	renderGame()
+	    cards.push(getRandom())
+	    cards.push(getRandom())
+	    sum = cards[0] + cards[1]
+	    gameDisplay()
+	}
+}
+	    
+function gameOver () {
+	console.log("game over")
+}
+gameOver()
