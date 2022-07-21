@@ -31,7 +31,7 @@ function gameDisplay(){
     document.getElementById("sum-el").innerHTML += sum
 }
 function renderGame() {
-	if (sum <= 21) {
+	if (sum < 21) {
 	message = "do you want to draw a new card?"
 	hasStarted = true
 	hasBlackJack = false
@@ -45,11 +45,7 @@ function renderGame() {
     	message = "you are out of the game"
 	isAlive = false;
 	hasStarted = true
-	hasBlackJack = false
-	}
-    
-  
-}; 
+	hasBlackJack = false}}; 
 
 function newCard() {
 	if (isAlive === true && hasBlackJack === false && hasStarted === true) {
@@ -57,8 +53,8 @@ function newCard() {
 	sum += thirdCard;
 	cards.push(thirdCard);
 	renderGame()
-	gameDisplay()}
-};
+	gameDisplay()}}
+
 	
 
 function startGame() {
@@ -68,10 +64,9 @@ function startGame() {
 	    cards.push(getRandom())
 	    sum = cards[0] + cards[1]
 	    gameDisplay()
-	}
-}
+	}}
+
 	    
 function gameOver () {
 	console.log("game over")
 }
-gameOver()
